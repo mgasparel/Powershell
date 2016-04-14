@@ -1,20 +1,18 @@
-# Helper function to grab current directory for use in building relative paths
-function Get-ScriptDirectory { Split-Path $MyInvocation.ScriptName }
-$scripts = Get-ScriptDirectory
+$userscripts = Join-Path $env:USERPROFILE 'PowerShell-UserScripts\'
 
 # Load posh-git example profile
-$poshgitprofile = Join-Path (Get-ScriptDirectory) 'Modules\posh-git\profile.example.ps1' 
+$poshgitprofile = Join-Path $env:USERPROFILE '\Documents\WindowsPowerShell\Modules\posh-git\profile.example.ps1' 
 .$poshgitprofile
 
 # Load machine-specific variables
-$variables = Join-Path (Get-ScriptDirectory) 'variables.ps1'
+$variables = Join-Path $userscripts 'variables.ps1'
 .$variables
 
 # Load command aliases
-$aliases = Join-Path (Get-ScriptDirectory) 'aliases.ps1'
+$aliases = Join-Path $userscripts 'aliases.ps1'
 .$aliases
 
 # Load user-defined functions
-$functions = Join-Path (Get-ScriptDirectory) 'functions.ps1'
+$functions = Join-Path $userscripts 'functions.ps1'
 .$functions
 
