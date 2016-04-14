@@ -1,7 +1,7 @@
-$userscripts = Join-Path $env:USERPROFILE 'PowerShell-UserScripts\'
+$userscripts = [Environment]::GetFolderPath('MyDocuments')+'\WindowsPowerShell\PowerShell-UserScripts\'
 
 # Load posh-git example profile
-$poshgitprofile = Join-Path $env:USERPROFILE '\Documents\WindowsPowerShell\Modules\posh-git\profile.example.ps1' 
+$poshgitprofile = [Environment]::GetFolderPath('MyDocuments')+'\WindowsPowerShell\Modules\posh-git\profile.example.ps1' 
 .$poshgitprofile
 
 # Load machine-specific variables
